@@ -27,9 +27,13 @@ Coinisky Algorithms
         5.Knn
         6.Decision treee
         7.Random forest
+        
 4.Data :-
+
         “s3://jasbir/20-02-2022/customer_churn_data.csv”
-5.Output :- 
+        
+5.Output :-
+
         “s3://jasbir/20-02-2022/model_result.csv”
  
               
