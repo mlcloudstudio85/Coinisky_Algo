@@ -102,9 +102,10 @@ if __name__ == "__main__":
     data_obj = s3.get_object(Bucket="jasbir", Key="20-02-2022/customer_churn_data.csv")
 
     data = pd.read_csv(io.BytesIO(data_obj['Body'].read()))
-    # obj = describe_data(data)
-    # print(obj.get_attribute())
+    obj = describe_data(data)
+    # get description of data
+    return obj.get_attribute()
      
-    dummy_data,response,description = apply_fe(data).checking_func()
-    print(dummy_data.shape)
-    print(response.shape)
+    # dummy_data,response,description = apply_fe(data).checking_func()
+    # print(dummy_data.shape)
+    # print(response.shape)
