@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: executing ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            sudo rm -rf convertml_ml_algos
+            git clone git@github.com:founder2022/convertml_ml_algos.git
+            cd convertml_ml_algos
+            bash cleanup.sh
+            sudo docker compose build
+            sudo docker compose up -d
