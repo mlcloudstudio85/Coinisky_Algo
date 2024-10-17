@@ -12,7 +12,7 @@ class client_request:
     prompt_text = text
 
     response = openai.Completion.create(
-      engine="text-davinci-002",
+      engine="gpt-3.5-turbo",
       prompt=prompt_text,
       temperature=0.7,
       max_tokens=1000,
